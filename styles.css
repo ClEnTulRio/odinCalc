@@ -1,27 +1,29 @@
 html, body {
     height: 100%;
     margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body {
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: darkolivegreen;
     justify-content: center;
     align-items: center;
 }
 
 .container {
     display: grid;
-    background-color:turquoise;
-    width: 50vw;
-    height: 50vh;
+    background-color:rgb(217, 144, 65);
+    width: 70vw;
+    height: 70vh;
     grid-template-rows: 1fr 4fr;
-    border: turquoise solid 5px;  
+    border: rgb(217, 144, 65) solid 5px;  
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     row-gap: 5px;
+    outline: rgb(0, 0, 0) solid 2px;
 }
 
 .display {
@@ -52,6 +54,8 @@ body {
 button {
     background-color: black;
     color: white;
+    font-size: larger;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #zero {
     grid-column: 1 / 3;
