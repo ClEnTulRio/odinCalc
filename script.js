@@ -20,7 +20,6 @@ const negative = document.querySelector("#negative");
 const input = document.querySelector(".input");
 const memory = document.querySelector(".memory");
 
-
 let num1 = "";
 let num2 = "";
 let memorySwitch = 0;
@@ -30,9 +29,11 @@ input.textContent = 0;
 
 function pressZero() {
     if (memorySwitch < 1) {
-        num1 = num1 + String(0);       
+        num1 = num1 + String(0); 
+        input.textContent = num1;      
     } else {  
         num2 = num2 + String(0);
+        input.textContent = num2;
     }  
 }
 
@@ -126,8 +127,6 @@ function pressNine() {
     }  
 }
 
-
-
 function addition() {
     if (operator < 1) {
         memoryValue += Number(num1);
@@ -135,14 +134,35 @@ function addition() {
         memorySwitch = 1;
         operator = 1
         input.textContent = 0;
-    } else {
-        memoryValue += memoryValue + Number(num2);
+    } else if (operator == 1){
+        memoryValue = memoryValue + Number(num2);
+        memorySwitch = 1;
+        memory.textContent = memoryValue;
+        input.textContent = 0;
+    } else if (operator == 2) {
+        substraction();
+        operator = 1;
+    }
+    num2 = "";
+}
+
+function substraction() {
+    if (operator < 1) {
+        memoryValue += Number(num1);
+        memory.textContent = memoryValue;
+        memorySwitch = 1;
+        operator = 2
+        input.textContent = 0;
+    } else if (operator == 1 ){
+        addition();
+        operator = 2;
+    } else if (operator == 2 ){
+        memoryValue = memoryValue - Number(num2);
         memorySwitch = 1;
         memory.textContent = memoryValue;
         input.textContent = 0;
     }
     num2 = "";
- console.log(num1, num2, operator);
 }
 
 function pressEquals() {        //operator 1= +, 2= -, 3 = *, 4= /
@@ -155,7 +175,14 @@ function pressEquals() {        //operator 1= +, 2= -, 3 = *, 4= /
         memory.textContent ="";
         input.textContent= String(num1);
         operator = 0;
-    }
+    } else if (operator == 2) {
+        num1 = memoryValue - Number(num2);
+        memorySwitch = 0;
+        memoryValue = 0;
+        memory.textContent ="";
+        input.textContent= String(num1);
+        operator = 0;
+    } 
 }
 
 function pressClear() {
@@ -179,6 +206,8 @@ seven.addEventListener("click", pressSeven);
 eight.addEventListener("click", pressEight);
 nine.addEventListener("click", pressNine);
 plus.addEventListener("click", addition);
+minus.addEventListener("click", substraction);
 clear.addEventListener("click", pressClear);
 equals.addEventListener("click", pressEquals);
+
 
