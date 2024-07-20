@@ -219,10 +219,19 @@ function division() {
         multiplication();
         operator = 4;
     } else if (operator == 4) {
-        memoryValue = memoryValue / Number(num2);
-        memorySwitch = 1;
-        memory.textContent = memoryValue;
-        input.textContent = 0; 
+        if (num2 == 0) {
+            memory.style.opacity = "0";
+            input.textContent = "Can't divide by 0."
+            setTimeout( () => {
+                memory.style.opacity = "1";
+                input.textContent = 0;
+            }, 1000)
+        } else {
+            memoryValue = memoryValue / Number(num2);
+            memorySwitch = 1;
+            memory.textContent = memoryValue;
+            input.textContent = 0; 
+        }
     }
     num2 = "";
 }
@@ -252,12 +261,21 @@ function pressEquals() {        //operator 1= +, 2= -, 3 = *, 4= /
         input.textContent= num1;
         operator = 0;
     } else if (operator == 4) {
-        num1 = memoryValue / Number(num2);
-        memorySwitch = 0;
-        memoryValue = 0;
-        memory.textContent ="";
-        input.textContent= num1;
-        operator = 0;
+        if (num2 == 0) {
+            memory.style.opacity = "0";
+            input.textContent = "Can't divide by 0."
+            setTimeout( () => {
+                memory.style.opacity = "1";
+                input.textContent = 0;
+            }, 1000)
+        } else {
+            num1 = memoryValue / Number(num2);
+            memorySwitch = 0;
+            memoryValue = 0;
+            memory.textContent ="";
+            input.textContent= num1;
+            operator = 0;
+        }
     }
 }
 
@@ -275,13 +293,16 @@ function pressBack() {
     if (memorySwitch == 0 && !num1 == "") {
         num1 = String(num1).slice(0, -1);
         input.textContent = num1;
-    } else if (memorySwitch == 1 && !num1 == "") {
+    } else if (memorySwitch == 1 && !num2 == "") {
         num2 = String(num2).slice(0, -1);
         input.textContent = num2; 
     } else {
         return;
     }
     if (num1 == "") {
+        input.textContent = 0;
+    }
+    if (num2 == "" && memorySwitch == 1) {
         input.textContent = 0;
     }
 }
