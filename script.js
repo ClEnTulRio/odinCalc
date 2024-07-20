@@ -228,6 +228,7 @@ function division() {
             }, 1000)
         } else {
             memoryValue = memoryValue / Number(num2);
+            memoryValue = parseFloat(memoryValue.toFixed(2));
             memorySwitch = 1;
             memory.textContent = memoryValue;
             input.textContent = 0; 
@@ -270,6 +271,7 @@ function pressEquals() {        //operator 1= +, 2= -, 3 = *, 4= /
             }, 1000)
         } else {
             num1 = memoryValue / Number(num2);
+            num1 = parseFloat(num1.toFixed(2));
             memorySwitch = 0;
             memoryValue = 0;
             memory.textContent ="";
