@@ -1,0 +1,131 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: grid;
+    background-color:turquoise;
+    width: 50vw;
+    height: 50vh;
+    grid-template-rows: 1fr 4fr;
+    border: turquoise solid 5px;  
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    row-gap: 5px;
+}
+
+.display {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-color: rgb(141, 139, 133);
+    border: black solid 2px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-sizing: border-box;
+    color: white;
+    font-size: xx-large;
+}
+.result {
+    margin-right: 20px;
+}
+.keyContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    box-sizing: border-box;
+    border: rgb(0, 0, 0) solid 2px;
+}
+
+button {
+    background-color: black;
+    color: white;
+}
+#zero {
+    grid-column: 1 / 3;
+    grid-row: 5 / 6;
+}
+#dot {
+    grid-column: 3 / 4;
+    grid-row: 5 / 6;
+}
+#equals {
+    grid-column: 4 / 5;
+    grid-row: 5 / 6;
+}
+#one {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+}
+#two {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+}
+#three {
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
+}
+#plus {
+    grid-column: 4 / 5;
+    grid-row: 4 / 5;
+}
+#four {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+#five {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+#six {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+#minus {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+}
+#seven {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+#eight {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+#nine {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+#mult {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+}
+#clear {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+#back {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+#negative {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+#divide {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+}
