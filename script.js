@@ -145,6 +145,9 @@ function addition() {
     } else if (operator == 3) {
         multiplication();
         operator = 1;
+    } else if (operator == 4) {
+        division();
+        operator = 1;
     }
     num2 = "";
 }
@@ -167,6 +170,9 @@ function substraction() {
     } else if (operator == 3) {
         multiplication();
         operator = 2;
+    } else if (operator == 4) {
+        division();
+        operator = 1;
     }
     num2 = "";
 }
@@ -189,6 +195,34 @@ function multiplication() {
         memorySwitch = 1;
         memory.textContent = memoryValue;
         input.textContent = 0; 
+    } else if (operator == 4) {
+        division();
+        operator = 3;
+    }
+    num2 = "";
+}
+
+function division() {
+    if (operator < 1) {
+        memoryValue += Number(num1);
+        memory.textContent = memoryValue;
+        memorySwitch = 1;
+        operator = 4
+        input.textContent = 0;
+    } else if (operator == 1 ){
+        addition();
+        operator = 3;
+    } else if (operator == 2 ){
+        substraction();
+        operator = 3;
+    } else if (operator == 3) {
+        multiplication();
+        operator = 4;
+    } else if (operator == 4) {
+        memoryValue = memoryValue / Number(num2);
+        memorySwitch = 1;
+        memory.textContent = memoryValue;
+        input.textContent = 0; 
     }
     num2 = "";
 }
@@ -201,21 +235,28 @@ function pressEquals() {        //operator 1= +, 2= -, 3 = *, 4= /
         memorySwitch = 0;
         memoryValue = 0;
         memory.textContent ="";
-        input.textContent= String(num1);
+        input.textContent= num1;
         operator = 0;
     } else if (operator == 2) {
         num1 = memoryValue - Number(num2);
         memorySwitch = 0;
         memoryValue = 0;
         memory.textContent ="";
-        input.textContent= String(num1);
+        input.textContent= num1;
         operator = 0;
     } else if (operator == 3) {
         num1 = memoryValue * Number(num2);
         memorySwitch = 0;
         memoryValue = 0;
         memory.textContent ="";
-        input.textContent= String(num1);
+        input.textContent= num1;
+        operator = 0;
+    } else if (operator == 4) {
+        num1 = memoryValue / Number(num2);
+        memorySwitch = 0;
+        memoryValue = 0;
+        memory.textContent ="";
+        input.textContent= num1;
         operator = 0;
     }
 }
@@ -228,6 +269,25 @@ function pressClear() {
     input.textContent = 0;
     memory.textContent = "";
     operator = 0;
+}
+
+function pressBack() {
+    if (memorySwitch == 0 && !num1 == "") {
+        num1 = String(num1).slice(0, -1);
+        input.textContent = num1;
+    } else if (memorySwitch == 1 && !num1 == "") {
+        num2 = String(num2).slice(0, -1);
+        input.textContent = num2; 
+    } else {
+        return;
+    }
+    if (num1 == "") {
+        input.textContent = 0;
+    }
+}
+
+function pressNegative() {
+    
 }
 
 zero.addEventListener("click", pressZero);
@@ -243,7 +303,10 @@ nine.addEventListener("click", pressNine);
 plus.addEventListener("click", addition);
 minus.addEventListener("click", substraction);
 mult.addEventListener("click", multiplication);
+divide.addEventListener("click", division);
 clear.addEventListener("click", pressClear);
 equals.addEventListener("click", pressEquals);
+back.addEventListener("click", pressBack);
+
 
 
