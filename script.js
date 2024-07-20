@@ -285,8 +285,9 @@ function pressBack() {
         input.textContent = 0;
     }
 }
-function pressNegative() {
+function pressDot() {
     num1 = String(num1);
+    num2 = String(num2);
     if (memorySwitch == 0) {
         if (num1 === ""){
             num1 = "0.";
@@ -297,7 +298,42 @@ function pressNegative() {
         } else {
             return;
         }
-    console.log(num1);
+    } else {
+        if (num2 === ""){
+            num2 = "0.";
+            input.textContent = num2;
+        } else if (!num2.includes(".")){
+            num2 = num2 + ".";
+            input.textContent = num2;
+        } else {
+            return;
+        }
+    }
+}
+
+function pressNegative () {
+    num1 = String(num1);
+    num2 = String(num2);
+    if (memorySwitch == 0) {
+        if (num1 === ""){
+            return;
+        } else if (!num1.includes("-")){
+            num1 = "-" + num1;
+            input.textContent = num1;
+        } else {
+            num1 = num1.slice(1);
+            input.textContent = num1;
+        }
+    } else {
+        if (num2 === ""){
+            return;
+        } else if (!num2.includes("-")){
+            num2 = "-" + num2;
+            input.textContent = num2;
+        } else {
+            num2 = num2.slice(1);
+            input.textContent = num2;
+        }
     }
 }
 
@@ -318,8 +354,5 @@ divide.addEventListener("click", division);
 clear.addEventListener("click", pressClear);
 equals.addEventListener("click", pressEquals);
 back.addEventListener("click", pressBack);
+dot.addEventListener("click", pressDot);
 negative.addEventListener("click", pressNegative);
-
-
-
-
