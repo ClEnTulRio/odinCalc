@@ -142,6 +142,9 @@ function addition() {
     } else if (operator == 2) {
         substraction();
         operator = 1;
+    } else if (operator == 3) {
+        multiplication();
+        operator = 1;
     }
     num2 = "";
 }
@@ -161,6 +164,31 @@ function substraction() {
         memorySwitch = 1;
         memory.textContent = memoryValue;
         input.textContent = 0;
+    } else if (operator == 3) {
+        multiplication();
+        operator = 2;
+    }
+    num2 = "";
+}
+
+function multiplication() {
+    if (operator < 1) {
+        memoryValue += Number(num1);
+        memory.textContent = memoryValue;
+        memorySwitch = 1;
+        operator = 3
+        input.textContent = 0;
+    } else if (operator == 1 ){
+        addition();
+        operator = 3;
+    } else if (operator == 2 ){
+        substraction();
+        operator = 3;
+    } else if (operator == 3) {
+        memoryValue = memoryValue * Number(num2);
+        memorySwitch = 1;
+        memory.textContent = memoryValue;
+        input.textContent = 0; 
     }
     num2 = "";
 }
@@ -182,7 +210,14 @@ function pressEquals() {        //operator 1= +, 2= -, 3 = *, 4= /
         memory.textContent ="";
         input.textContent= String(num1);
         operator = 0;
-    } 
+    } else if (operator == 3) {
+        num1 = memoryValue * Number(num2);
+        memorySwitch = 0;
+        memoryValue = 0;
+        memory.textContent ="";
+        input.textContent= String(num1);
+        operator = 0;
+    }
 }
 
 function pressClear() {
@@ -207,6 +242,7 @@ eight.addEventListener("click", pressEight);
 nine.addEventListener("click", pressNine);
 plus.addEventListener("click", addition);
 minus.addEventListener("click", substraction);
+mult.addEventListener("click", multiplication);
 clear.addEventListener("click", pressClear);
 equals.addEventListener("click", pressEquals);
 
