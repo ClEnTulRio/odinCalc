@@ -285,9 +285,20 @@ function pressBack() {
         input.textContent = 0;
     }
 }
-
 function pressNegative() {
-    
+    num1 = String(num1);
+    if (memorySwitch == 0) {
+        if (num1 === ""){
+            num1 = "0.";
+            input.textContent = num1;
+        } else if (!num1.includes(".")){
+            num1 = num1 + ".";
+            input.textContent = num1;
+        } else {
+            return;
+        }
+    console.log(num1);
+    }
 }
 
 zero.addEventListener("click", pressZero);
@@ -307,6 +318,8 @@ divide.addEventListener("click", division);
 clear.addEventListener("click", pressClear);
 equals.addEventListener("click", pressEquals);
 back.addEventListener("click", pressBack);
+negative.addEventListener("click", pressNegative);
+
 
 
 
