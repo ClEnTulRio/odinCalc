@@ -28,7 +28,7 @@ body {
 
 .display {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
     background-color: rgb(141, 139, 133);
     border: black solid 2px;
@@ -40,8 +40,11 @@ body {
     color: white;
     font-size: xx-large;
 }
-.result {
+.input {
     margin-right: 20px;
+}
+.memory {
+    margin-left: 20px;
 }
 .keyContainer {
     display: grid;
