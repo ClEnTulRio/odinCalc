@@ -139,6 +139,7 @@ function addition() {
         input.textContent = 0;
     } else if (operator == 1){
         memoryValue = memoryValue + Number(num2);
+        memoryValue = parseFloat(memoryValue.toFixed(2));
         memorySwitch = 1;
         memory.textContent = memoryValue;
         input.textContent = 0;
@@ -167,6 +168,7 @@ function substraction() {
         operator = 2;
     } else if (operator == 2 ){
         memoryValue = memoryValue - Number(num2);
+        memoryValue = parseFloat(memoryValue.toFixed(2));
         memorySwitch = 1;
         memory.textContent = memoryValue;
         input.textContent = 0;
@@ -195,6 +197,7 @@ function multiplication() {
         operator = 3;
     } else if (operator == 3) {
         memoryValue = memoryValue * Number(num2);
+        memoryValue = parseFloat(memoryValue.toFixed(2));
         memorySwitch = 1;
         memory.textContent = memoryValue;
         input.textContent = 0; 
@@ -245,6 +248,7 @@ function pressEquals() {        //operator 1= +, 2= -, 3 = *, 4= /
         return;
     } else if (operator == 1) {
         num1 = memoryValue + Number(num2);
+        num1 = parseFloat(num1.toFixed(2));
         memorySwitch = 0;
         memoryValue = 0;
         memory.textContent ="";
@@ -252,6 +256,7 @@ function pressEquals() {        //operator 1= +, 2= -, 3 = *, 4= /
         operator = 0;
     } else if (operator == 2) {
         num1 = memoryValue - Number(num2);
+        num1 = parseFloat(num1.toFixed(2));
         memorySwitch = 0;
         memoryValue = 0;
         memory.textContent ="";
@@ -259,6 +264,7 @@ function pressEquals() {        //operator 1= +, 2= -, 3 = *, 4= /
         operator = 0;
     } else if (operator == 3) {
         num1 = memoryValue * Number(num2);
+        num1 = parseFloat(num1.toFixed(2));
         memorySwitch = 0;
         memoryValue = 0;
         memory.textContent ="";
