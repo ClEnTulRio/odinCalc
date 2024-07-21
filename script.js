@@ -388,3 +388,68 @@ equals.addEventListener("click", pressEquals);
 back.addEventListener("click", pressBack);
 dot.addEventListener("click", pressDot);
 negative.addEventListener("click", pressNegative);
+
+document.addEventListener("keydown", function(event) {
+    const key = event.key;
+    switch (key) {
+        case '0':
+            pressZero();
+            break;
+        case '1':
+            pressOne();
+            break;
+        case '2':
+            pressTwo();
+            break;
+        case '3':
+            pressThree();
+            break;
+        case '4':
+            pressFour();
+            break;
+        case '5':
+            pressFive();
+            break;
+        case '6':
+            pressSix();
+            break;
+        case '7':
+            pressSeven();
+            break;
+        case '8':
+            pressEight();
+            break;
+        case '9':
+            pressNine();
+            break;
+        case '+':
+            addition();
+            break;
+        case '-':
+            substraction();
+            break;
+        case '*':
+            multiplication();
+            break;
+        case '/':
+            division();
+            break;
+        case 'Enter':
+        case '=':
+            pressEquals();
+            break;
+        case '.':
+            pressDot();
+            break;
+        case 'Backspace':
+            pressBack();
+            break;
+        case 'Escape':
+            pressClear();
+            break;
+        case 'n':
+            pressNegative();
+            break;
+    }
+    event.preventDefault();
+});
