@@ -52,7 +52,7 @@ body {
     flex-shrink: 1;
     min-width: 0;
     flex-basis: 45%;
-    direction: rtl;
+    direction: ltr;
     text-align: left;
     padding-right: 4px;
     padding-left: 4px;
