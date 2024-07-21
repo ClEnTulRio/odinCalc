@@ -16,6 +16,8 @@ body {
     background-color:rgb(217, 144, 65);
     width: 70vw;
     height: 70vh;
+    max-width: 400px;
+    max-height: 600px;
     grid-template-rows: 1fr 4fr;
     border: rgb(217, 144, 65) solid 5px;  
     border-top-left-radius: 20px;
@@ -43,15 +45,24 @@ body {
     gap: 10px;
     
 }
-.input {
-    margin-right: 20px;
+.input, .memory {
     overflow: hidden;
     white-space: nowrap;
+    text-overflow: clip; 
+    flex-shrink: 1;
+    min-width: 0;
+    flex-basis: 45%;
+    direction: rtl;
+    text-align: left;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+.input {
+    margin-right: 20px;
+    text-align: right;
 }
 .memory {
     margin-left: 20px;
-    overflow: hidden;
-    white-space: nowrap;
 }
 .keyContainer {
     display: grid;
