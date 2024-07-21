@@ -28,13 +28,16 @@ let operator = 0;
 input.textContent = 0;
 
 function pressZero() {
-    if (memorySwitch < 1) {
+    if (input.textContent === "0") {
+        return;   
+    } else if (memorySwitch < 1) {
         num1 = num1 + String(0); 
         input.textContent = num1;      
     } else {  
         num2 = num2 + String(0);
         input.textContent = num2;
     }  
+    console.log(input, num1);
 }
 
 function pressOne() {

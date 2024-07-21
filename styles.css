@@ -39,12 +39,19 @@ body {
     box-sizing: border-box;
     color: white;
     font-size: xx-large;
+    overflow: hidden;
+    gap: 10px;
+    
 }
 .input {
     margin-right: 20px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .memory {
     margin-left: 20px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .keyContainer {
     display: grid;
